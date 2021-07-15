@@ -10,15 +10,15 @@ var sprites = {
 };
 
 var enemies = {
-  straight: { x: 0,   y: -50, sprite: 'enemy_ship', health: 10, 
+  straight: { x: 0,   y: -50, sprite: 'enemy_ship', health: 500, 
               E: 100 },
-  ltr:      { x: 0,   y: -100, sprite: 'enemy_purple', health: 10, 
+  ltr:      { x: 0,   y: -100, sprite: 'enemy_purple', health: 200, 
               B: 75, C: 1, E: 100, missiles: 2  },
-  circle:   { x: 250,   y: -50, sprite: 'enemy_circle', health: 10, 
+  circle:   { x: 250,   y: -50, sprite: 'enemy_circle', health: 800, 
               A: 0,  B: -100, C: 1, E: 20, F: 100, G: 1, H: Math.PI/2 },
-  wiggle:   { x: 100, y: -50, sprite: 'enemy_bee', health: 20, 
+  wiggle:   { x: 100, y: -50, sprite: 'enemy_bee', health: 500, 
               B: 50, C: 4, E: 100, firePercentage: 0.001, missiles: 2 },
-  step:     { x: 0,   y: -50, sprite: 'enemy_circle', health: 10,
+  step:     { x: 0,   y: -50, sprite: 'enemy_circle', health: 1000,
               B: 150, C: 1.2, E: 75 }
 };
 
@@ -52,15 +52,10 @@ var level1 = [
   [ 6000,   13000, 800, 'ltr' ],
   [ 10000,  16000, 400, 'circle' ],
   [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 17800,  20000, 500, 'straight', { x: 50 } ],
-  [ 18200,  20000, 500, 'straight', { x: 90 } ],
   [ 18200,  20000, 500, 'straight', { x: 10 } ],
   [ 22000,  25000, 400, 'wiggle', { x: 150 }],
   [ 22000,  25000, 400, 'wiggle', { x: 100 }]
+  [ 40000,  25000, 400, 'wiggle', { x: 100 }]
 ];
 
 
