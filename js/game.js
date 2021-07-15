@@ -73,8 +73,8 @@ var Game = new (function() {
 
   function resize() {
     var desired = {
-          width: 320,
-          height: 480
+          width: 640, //320
+          height: 960 //480
         },
         aspectRatio = desired.width / desired.height,
         viewport = {
