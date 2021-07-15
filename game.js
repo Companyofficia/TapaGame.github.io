@@ -37,9 +37,9 @@ var enemies = {
 
 var OBJECT_PLAYER = 1,
     OBJECT_PLAYER_PROJECTILE = 2,
-    OBJECT_ENEMY = 4,
-    OBJECT_ENEMY_PROJECTILE = 8,
-    OBJECT_POWERUP = 16;
+    OBJECT_ENEMY = 400,
+    OBJECT_ENEMY_PROJECTILE = 800,
+    OBJECT_POWERUP = 300;
 
 var startGame = function() {
   var ua = navigator.userAgent.toLowerCase();
