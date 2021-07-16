@@ -1,34 +1,65 @@
-# emoji-minesweeper [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# HTML5 塔防游戏
 
-### How to play
 
-- Left click to step on a spot
-- Right click to mark a spot as a bomb
-- Double click to open all 8 spots nearby a target (except ones already marked as bombs using right clicks)
+ * Author: oldj
+ * Email: oldj.wu@gmail.com
+ * Blog: [http://oldj.net/](http://oldj.net/)
+ * Source: https://github.com/oldj/html5-tower-defense
+ * License: MIT
 
-**This is a work in progress**
 
-![emoji minesweeper game play demo](https://cloud.githubusercontent.com/assets/1153134/7797311/19c09214-031d-11e5-99c3-2a380ac7984e.gif)
+## 运行
 
-### API
+进入 `src` 或 `build` 目录，用浏览器（如 Chrome、IE9 ）打开 td.html 即可运行本游戏。
 
-```javascript
-// to start a new game
-new Game(cols, rows, bombs, [emptyemoji, bombemoji, flagemoji, starteremoji], twemojiOrNot)
+或者查看[线上Demo](http://oldj.net/static/html5-tower-defense/td.html)。
 
-// for example:
-new Game(10, 10, 10, ["🌱", "💥", "🚩", "◻️"], true)
-new Game(16, 16, 30, ["🐱", "📛", "💣", "🔍"], false)
-```
+## 说明
 
-### Todos
+ 1. 本游戏完全使用 HTML5 / JavaScript / CSS 实现，没有用到 Flash、SilverLight 等技术。
+ 2. 这一个版本没有用到图片，游戏中的所有物品都是使用 HTML5 画出来的。
+ 3. 这一个版本部分地方为 IE9 做了专门的优化，可正常运行在 IE9 下。
 
-- Mobile!
 
-### Zap :zap:
+## 目录
 
-:heart: https://github.com/twitter/twemoji
+    /build          压缩后的可发布的文件
+    /screenshorts   屏幕截图
+    /src            源码
+        /css        样式表
+        /js         JavaScripts 源文件
+    /tools          小工具、脚本
+    /README.md      本文件
 
-### Why
 
-[WHY IS THIS A QUESTION?!](https://twitter.com/muanchiou/status/601633821012856832)
+## 作弊方法
+
+为方便测试，本游戏内置了几个作弊方法，在命令行中执行如下命令即可：
+
+ 1. 增加 100 万金钱：`_TD.cheat="money+";`
+ 2. 难度增倍：`_TD.cheat="difficulty+";`
+ 3. 难度减半：`_TD.cheat="difficulty-";`
+ 4. 生命值恢复：`_TD.cheat="life+";`
+ 5. 生命值降为最低：`_TD.cheat="life-";`
+
+注意，以上作弊方法主要是为测试设计，正常游戏过程中请酌情使用，否则可能会降低游戏乐趣。
+
+
+## 更新历史
+
+ - 2015-09-06 支持 retina 显示屏。
+ - 2011-01-01 调整参数，同时根据网友建议，新建建筑时添加检查，禁止用建筑把怪物包围起来（v0.1.14）。
+ - 2010-12-29 根据网友建议，增加生命自动恢复功能（每隔 5 波生命恢复 5 点，每隔 10 波生命恢复 10 点）。调整参数，减小了激光枪的射程，增强了重机枪的威力（v0.1.12）。
+ - 2010-12-18 添加新武器“激光枪”（v0.1.8.0）。
+ - 2010-12-12 暂停图片资源版本分支的开发，继续优化、开发圈圈版（v0.1.7.0）。
+ - 2010-11-28 第一个图片资源版本（v0.2.1.3267）。
+ - 2010-11-23 发布 [圈圈版（v0.1.6.2970）](http://oldj.net/article/html5-td-circle-version/)。
+ - 2010-11-14 线上发布第一个版本。
+ - 2010-11-11 开始编写这个游戏。
+
+
+## 开发计划
+
+ - 添加新武器“加农炮”，特性：击中怪物时会发生爆炸，造成面攻击。
+ - 添加关卡编辑器。
+ - 添加保存进度的功能。
