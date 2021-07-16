@@ -1,37 +1,34 @@
-Clumsy Bird
-===========
+# emoji-minesweeper [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-A MelonJS made "Flappy Bird" clone.
+### How to play
 
-![](http://i.imgur.com/Slbvt65.png)
+- Left click to step on a spot
+- Right click to mark a spot as a bomb
+- Double click to open all 8 spots nearby a target (except ones already marked as bombs using right clicks)
 
-Play online at http://ellisonleao.github.io/clumsy-bird/
+**This is a work in progress**
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ellisonleao/clumsy-bird/tree/gh-pages)
+![emoji minesweeper game play demo](https://cloud.githubusercontent.com/assets/1153134/7797311/19c09214-031d-11e5-99c3-2a380ac7984e.gif)
 
-## Running Locally
+### API
 
-- Install [Node](http://nodejs.org/download/) and [Grunt](http://gruntjs.com/)
-- Install the dependencies
+```javascript
+// to start a new game
+new Game(cols, rows, bombs, [emptyemoji, bombemoji, flagemoji, starteremoji], twemojiOrNot)
 
-```
-npm install
-```
-
-Then just type on your shell:
-
-```
-grunt connect
+// for example:
+new Game(10, 10, 10, ["🌱", "💥", "🚩", "◻️"], true)
+new Game(16, 16, 30, ["🐱", "📛", "💣", "🔍"], false)
 ```
 
-Open your browser at `http://localhost:8001/`
+### Todos
 
-## Making your customization
+- Mobile!
 
-See [CUSTOMIZING](https://github.com/ellisonleao/clumsy-bird/blob/master/CUSTOMIZING.md)
+### Zap :zap:
 
-## Some nice games made with this project
+:heart: https://github.com/twitter/twemoji
 
-[Checkout here](https://github.com/ellisonleao/clumsy-bird/wiki/Games-using-clumsy-bird-code)
+### Why
 
-Some thoughts about this code you can find on [my blog post](https://medium.com/@ellisonleao/clumsy-bird-an-open-source-flappy-bird-clone-cf615724730f)
+[WHY IS THIS A QUESTION?!](https://twitter.com/muanchiou/status/601633821012856832)
