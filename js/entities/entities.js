@@ -2,8 +2,8 @@ game.BirdEntity = me.Entity.extend({
     init: function(x, y) {
         var settings = {};
         settings.image = 'clumsy';
-        settings.width = 85;
-        settings.height = 60;
+        settings.width = 85;//85
+        settings.height = 60;//60
 
         this._super(me.Entity, 'init', [x, y, settings]);
         this.alwaysUpdate = true;
