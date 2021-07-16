@@ -1,6 +1,6 @@
 body {
   position:relative;
-  font-size: 50px;
+  font-size: 10px;
   font-family: monospace;
   background-color:	#9400D3;
 }
@@ -38,7 +38,7 @@ h3 {
 }
 
 div, button, input{
-  font-size: 25px;
+  font-size: 20px;
   font-family: monospace;
 }
 
@@ -55,7 +55,7 @@ input[type="button"], button{
 }
 
 input[type="text"] {
-  margin: 15px 0px 0px 0px;
+  margin: 2px 0px 0px 0px;
 }
 
 .g:hover, input:hover, button:hover {
@@ -124,20 +124,6 @@ input[type="checkbox"]:checked {
   left: 50%;
   top: 350px;
   margin-left: -135px;
-}
-
-#p1 {
-  position:absolute;
-  margin-left: 25%;
-  top: 175px;
-  left:0;
-}
-
-#p2 {
-  position: absolute;
-  margin-right: 25%;
-  top: 175px;
-  right: 0;
 }
 
 [data-my-turn="true"] {
