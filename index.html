@@ -1,116 +1,187 @@
 <!DOCTYPE html>
-<html lang='en'>
-	<head>
-		<title>Hextris</title>
-		<meta name="apple-itunes-app" content="app-id=903769553"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
-		<meta property="og:url" content="http://hextris.github.io/hextris/"/>
-		<meta property="og:site_name" content="Hextris"/>
-		<meta property="og:title" content="Hextris"/>
-		<meta property="og:description" content="An addictive puzzle game inspired by Tetris."/>
-		<meta property="og:author" content="https://www.facebook.com/hextris"/>
-		<meta property="og:image" content="http://hextris.github.io/hextris/images/facebook-opengraph.png"/>
-		<meta property="og:image:width" content="1200"/>
-		<meta property="og:image:height" content="630"/>
-		<meta property="twitter:card" content="summary"/>
-		<meta property="twitter:site" content="@hextris"/>
-		<meta property="twitter:site:id" content="2742209678"/>
-		<meta property="twitter:creator" content="@hextris"/>
-		<meta property="twitter:creator:id" content="2742209678"/>
-		<meta property="twitter:domain" content="http://hextris.github.io"/>
-		<meta property="twitter:title" content="Hextris"/>
-		<meta property="twitter:description" content="An addictive puzzle game inspired by Tetris."/>
-		<meta property="twitter:image:src" content="http://hextris.github.io/hextris/images/twitter-opengraph.png"/>
-		<meta property="twitter:image:width" content="512"/>
-		<meta property="twitter:image:height" content="512"/>
-		<meta property="twitter:app:id:iphone" content="id903769553">
-		<meta property="twitter:app:id:ipad" content="id903769553">
-		<meta property="twitter:app:id:googleplay" content="com.hextris.hextris">
-		<meta property="twitter:app:country" content="us">
-		<meta property="twitter:app:url:iphone" content="itunes.apple.com/us/app/id903769553?mt=8">
-		<meta property="twitter:app:url:ipad" content="itunes.apple.com/us/app/id903769553?mt=8">
-		<meta property="twitter:app:url:googleplay" content="https://play.google.com/store/apps/details?id=com.hextris.hextris">
-		<link rel="icon" type="image/png" href="favicon.ico">
-		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="style/style.css">
-		<script type='text/javascript' src="vendor/hammer.min.js"></script>
-		<script type='text/javascript' src="vendor/js.cookie.js"></script>
-		<script type='text/javascript' src="vendor/jsonfn.min.js"></script>
-		<script type='text/javascript' src="vendor/keypress.min.js"></script>
-		<script type='text/javascript' src="vendor/jquery.js"></script>
-		<script type='text/javascript' src="js/save-state.js"></script>
-		<script type='text/javascript' src="js/view.js"></script>
-		<script type='text/javascript' src="js/wavegen.js"></script>
-		<script type='text/javascript' src="js/math.js"></script>
-		<script type='text/javascript' src="js/Block.js"></script>
-		<script type='text/javascript' src="js/Hex.js"></script>
-		<script type='text/javascript' src="js/Text.js"></script>
-		<script type='text/javascript' src="js/comboTimer.js"></script>
-		<script type='text/javascript' src="js/checking.js"></script>
-		<script type='text/javascript' src='js/update.js'></script>
-		<script type='text/javascript' src='js/render.js'></script>
-		<script type='text/javascript' src="js/input.js"></script>
-		<script type='text/javascript' src="js/main.js"></script>
-		<script type='text/javascript' src="js/initialization.js"></script>
-		<script type='text/javascript' src="https://hextris.io/scripts/a.js"></script>
-		<script type='text/javascript' charset='utf-8' src='cordova.js'></script>
-        
+<html lang="#@lang_code">
+  <head>
+    <title>BreakLock Master</title>
+    <meta name="description" content="#@description" />
+    <base href="/breaklock/" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-		<script src="vendor/sweet-alert.min.js"></script>
-		<link rel="stylesheet" href="style/rrssb.css"/>
-	</head>
-	<body>
-		<canvas id="canvas"></canvas>
-		<div id="overlay" class="faded overlay"></div>
-		<div id='startBtn' ></div>
-		<div id="helpScreen" class='unselectable'>
-			<div id='inst_main_body'></div>
-		</div>
-		<img id="openSideBar" class='helpText' src="./images/btn_help.svg"/>
-		<div class="faded overlay"></div>
-		<img id="pauseBtn" src="./images/btn_pause.svg"/>
-		<img id='restartBtn' src="./images/btn_restart.svg"/>
-		<div id='HIGHSCORE'>HIGH SCORE</div>
-		<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-51272720-2', 'auto'); ga('send', 'pageview');
-		</script>
-		<div id='highScoreInGameText'>
-			<div id='highScoreInGameTextHeader'>HIGH SCORE</div><div id='currentHighScore'>10292</div>
-		</div>
-		<div id="gameoverscreen">
-			<div id='container'>
-				<div id='gameOverBox' class='GOTitle'>GAME OVER</div>
-				<div id='cScore'>1843</div>
-				<div id='highScoresTitle' class='GOTitle'>HIGH SCORES</div>
-				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
-				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
-				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
-			</div>
-			<div id='bottomContainer'>
-				<img id='restart' src='./images/btn_restart.svg' height='57px'>
-				<div id='socialShare'>
-					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-					
-				</div>
-				<div id='buttonCont'>
-					<ul class="rrssb-buttons">
-						<li class="rrssb-facebook">
-		
-						</li>
-				</ul>
-					
-				</div>
-			</div>
-		</div>
-			<script type="text/javascript">
-				(function addRussianSocialShare(){
-					var lang=navigator.language || navigator.userLanguage;
-					if (lang.substr(0, 2) == 'ru') {
-						$('.rrssb-facebook').remove();
-						var n=$.parseHTML('<li class="rrssb-vk"><a href="http://vk.com/share.php?url=http://kurtnoble.com/labs/rrssb/index.html" class="popup"><span class="rrssb-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="70 70 378.7 378.7"><path d="M254.998 363.106h21.217s6.408-.706 9.684-4.23c3.01-3.24 2.914-9.32 2.914-9.32s-.415-28.47 12.796-32.663c13.03-4.133 29.755 27.515 47.482 39.685 13.407 9.206 23.594 7.19 23.594 7.19l47.407-.662s24.797-1.53 13.038-21.027c-.96-1.594-6.85-14.424-35.247-40.784-29.728-27.59-25.743-23.126 10.063-70.85 21.807-29.063 30.523-46.806 27.8-54.405-2.596-7.24-18.636-5.326-18.636-5.326l-53.375.33s-3.96-.54-6.892 1.216c-2.87 1.716-4.71 5.726-4.71 5.726s-8.452 22.49-19.714 41.618c-23.77 40.357-33.274 42.494-37.16 39.984-9.037-5.842-6.78-23.462-6.78-35.983 0-39.112 5.934-55.42-11.55-59.64-5.802-1.4-10.076-2.327-24.915-2.48-19.046-.192-35.162.06-44.29 4.53-6.072 2.975-10.757 9.6-7.902 9.98 3.528.47 11.516 2.158 15.75 7.92 5.472 7.444 5.28 24.154 5.28 24.154s3.145 46.04-7.34 51.758c-7.193 3.922-17.063-4.085-38.253-40.7-10.855-18.755-19.054-39.49-19.054-39.49s-1.578-3.873-4.398-5.947c-3.42-2.51-8.2-3.307-8.2-3.307l-50.722.33s-7.612.213-10.41 3.525c-2.488 2.947-.198 9.036-.198 9.036s39.707 92.902 84.672 139.72c41.234 42.93 88.048 40.112 88.048 40.112"/></svg></span><span class="rrssb-text">vk.com</span></a></li>');
-						$('.rrssb-buttons').prepend(n);
-					}})()
-			</script>
-		<script type="text/javascript" src='vendor/rrssb.min.js'></script>
-	</body>
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <meta name="theme-color" content="#14171b" />
+
+    <link rel="manifest" href="#@lang_code/manifest.json" />
+
+    <!-- Add to home screen for Safari on iOS -->
+    <link rel="apple-touch-icon" href="assets/icons/ios-180x180.png" />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/ios-startup/startup-640x1136.png"
+      media="device-width: 375px"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/ios-startup/startup-1080x1920.png"
+      media="device-width: 414px"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/ios-startup/startup-640x1136.png"
+      media="(device-width: 320px) and (device-height: 568px)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/ios-startup/startup-640x960.png"
+      media="(device-width: 320px) and (device-height: 480px)"
+    />
+
+    <meta name="apple-mobile-web-app-title" content="BreakLock" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+
+    <meta
+      name="msapplication-TileImage"
+      content="assets/icons/icon-144x144.png"
+    />
+    <meta name="msapplication-TileColor" content="#14171b" />
+
+    <link rel="stylesheet" type="text/css" href="#@lang_code/app.css" />
+    #@special_css
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      const isRoot = (() => {
+        const x = window.location.pathname.split('/');
+        while (true) {
+          const y = x.pop();
+          if (y === undefined) return true;
+          if (y.length === 2) return false;
+        }
+      })();
+
+      if (isRoot) {
+        const supported = { fa: true, en: true };
+        for (const l of navigator.languages) {
+          if (l === 'en') break;
+          if (supported[l]) {
+            window.location = l;
+          }
+        }
+      }
+    </script>
+    <!-- Intro -->
+    <p id="app-intro" style="font-family: monospace; color: #fff">
+      $ ./breaklock start<br />
+      Loading...
+      <style type="text/css">
+        body {
+          background: #14171b;
+        }
+      </style>
+    </p>
+
+    <!-- Static content -->
+    <div style="display: none">
+      <div id="instructions-template">
+        <object
+          class="introduction-demo"
+          data="assets/intro.svg"
+          type="image/svg+xml"
+        ></object>
+        <p>#@description_game</p>
+        <p></p>
+        <table>
+          <tr>
+            <td style="width: 1.5em">&#9679;</td>
+            <td>#@description_white</td>
+          </tr>
+          <tr>
+            <td>&#9675;</td>
+            <td>#@description_black</td>
+          </tr>
+        </table>
+        <p>#@description_difficulty</p>
+        <p>#@label_goodluck</p>
+        <p class="small">#@attribution</p>
+      </div>
+    </div>
+    <!-- SVG Icon definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol viewBox="0 0 128 128" id="icon-new_game">
+        <path
+          d="M111.5,120.5h-96c-4.418,0-8-3.582-8-8V16c0-3.236,1.949-6.153,4.938-7.391c2.991-1.237,6.432-0.554,8.718,1.734l48.5,48.5 c2.288,2.288,2.972,5.729,1.733,8.719S67.235,72.5,64,72.5H23.5v32h80v-80h-40c-4.418,0-8-3.582-8-8s3.582-8,8-8h48 c4.418,0,8,3.582,8,8v96C119.5,116.918,115.918,120.5,111.5,120.5z M23.5,56.5h21.187L23.5,35.313V56.5z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 128 128" id="icon-back_home">
+        <path
+          d="M111.5,120.5h-96c-4.418,0-8-3.582-8-8V64c0-2.129,0.849-4.17,2.358-5.672l48.25-48C59.613,8.831,61.681,8.015,63.776,8 c2.123,0.007,4.157,0.858,5.652,2.365l47.875,48.25c1.907,1.922,2.639,4.569,2.196,7.047V112.5 C119.5,116.918,115.918,120.5,111.5,120.5z M23.5,104.5h80v-32h-40c-4.418,0-8-3.582-8-8s3.582-8,8-8h29.165L63.713,27.321 L23.5,67.326V104.5z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 128 128" id="icon-continue">
+        <path
+          d="M15.5,120c-1.463,0-2.921-0.4-4.207-1.194C8.936,117.348,7.5,114.772,7.5,112V16c0-2.772,1.436-5.348,3.794-6.805 c2.359-1.458,5.304-1.591,7.784-0.35l96,48C117.788,58.2,119.5,60.97,119.5,64s-1.712,5.8-4.422,7.155l-96,48 C17.949,119.72,16.723,120,15.5,120z M23.5,28.944v70.111L93.611,64L23.5,28.944z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 120 122" id="icon-maxwellito">
+        <polyline
+          points="30,0 60,17.33 40,28.88 60,40.43 80,28.88 60,17.33 90,0 120,17.33 120,51.98 90,69.29 90,46.20 70,57.75 70,80.84 90,69.29 90,103.93 60,121.26 30,103.93 30,69.29 50,80.84 50,57.75 30,46.2 30,69.29 0,51.98 0,17.33"
+        />
+      </symbol>
+      <symbol viewBox="0 0 128 128" id="icon-github">
+        <path
+          d="M115.9,35.4c-5.3-9.2-12.6-16.5-21.8-21.8c-9.2-5.4-19.2-8-30.1-8c-10.9,0-20.9,2.7-30.1,8C24.7,18.9,17.4,26.2,12,35.4 c-5.3,9.2-8,19.3-8,30.1c0,13.1,3.8,24.9,11.4,35.3c7.7,10.4,17.5,17.7,29.6,21.7c1.4,0.3,2.5,0.1,3.1-0.5c0.7-0.6,1-1.4,1-2.4 v-4.2l-0.1-7l-1.8,0.3c-1.1,0.3-2.6,0.3-4.4,0.3c-1.7,0-3.6-0.2-5.4-0.5c-1.9-0.3-3.6-1.1-5.3-2.3c-1.6-1.2-2.7-2.8-3.4-4.8 L28,99.5c-0.5-1.2-1.3-2.5-2.5-4c-1.1-1.5-2.2-2.5-3.4-3l-0.5-0.4c-0.4-0.3-0.7-0.5-1-0.9c-0.3-0.4-0.5-0.7-0.7-1.1 c-0.1-0.4,0-0.7,0.4-0.9c0.4-0.3,1.2-0.4,2.2-0.4l1.6,0.3c1,0.2,2.3,0.8,3.8,1.8c1.6,1,2.8,2.4,3.8,4.1c1.2,2.1,2.6,3.7,4.3,4.8 c1.7,1.1,3.4,1.6,5.1,1.6c1.7,0,3.2-0.1,4.5-0.4c1.2-0.2,2.4-0.6,3.5-1.1c0.5-3.5,1.8-6.2,3.8-8c-3-0.3-5.6-0.8-8-1.4 c-2.4-0.7-4.8-1.6-7.3-3.1c-2.5-1.4-4.7-3.1-6.3-5.2c-1.6-2.1-3-4.8-4.1-8.2c-1.1-3.4-1.6-7.3-1.6-11.7c0-6.3,2.1-11.7,6.2-16.1 c-1.9-4.7-1.8-10,0.5-16c1.5-0.4,3.7-0.1,6.7,1.1c3,1.2,5.1,2.2,6.5,3c1.4,0.8,2.5,1.5,3.3,2.1c4.8-1.4,9.9-2,15-2 c5.1,0,10.1,0.7,15,2l3-1.9c2-1.3,4.4-2.5,7.2-3.5c2.7-1,4.9-1.4,6.3-0.8c2.4,5.9,2.6,11.2,0.7,15.9c4.1,4.5,6.2,9.9,6.2,16.1 c0,4.4-0.5,8.3-1.6,11.8c-1,3.4-2.4,6.1-4.1,8.2c-1.7,2-3.8,3.8-6.3,5.1c-2.6,1.5-5,2.5-7.4,3.1c-2.4,0.6-5,1.1-8,1.4 c2.7,2.4,4.1,6.1,4.1,11.1v16.5c0,0.9,0.3,1.7,1,2.4c0.7,0.6,1.6,0.8,3.1,0.5c12-4,21.9-11.2,29.6-21.7 c7.7-10.4,11.4-22.2,11.4-35.3C124,54.7,121.3,44.6,115.9,35.4L115.9,35.4z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 128 128" id="icon-facebook">
+        <path
+          d="M16,16v96h51.164V74.451h-12.08v-13.99h12.08V50.144c0-11.973,7.312-18.493,17.994-18.493c5.115,0,9.514,0.381,10.795,0.552 v12.514l-7.408,0.003c-5.809,0-6.934,2.76-6.934,6.811v8.932h13.854l-1.803,13.99H81.611V112H112V16H16z"
+        />
+      </symbol>
+      <symbol viewBox="0 0 128 128" id="icon-twitter">
+        <path
+          d="M128,24.3c-4.7,2.1-9.8,3.5-15.1,4.1c5.4-3.2,9.6-8.4,11.5-14.5c-5.1,3-10.7,5.2-16.7,6.4 C103,15.2,96.2,12,88.6,12c-14.5,0-26.3,11.8-26.3,26.3c0,2.1,0.2,4.1,0.7,6C41.2,43.2,21.9,32.7,8.9,16.8 C6.7,20.7,5.4,25.2,5.4,30c0,9.1,4.6,17.1,11.7,21.9c-4.3-0.1-8.4-1.3-11.9-3.3v0.3c0,12.7,9.1,23.3,21.1,25.7 c-2.2,0.6-4.5,0.9-6.9,0.9c-1.7,0-3.3-0.2-4.9-0.5c3.3,10.4,13,18,24.5,18.2c-9,7-20.3,11.2-32.6,11.2c-2.1,0-4.2-0.1-6.3-0.4 c11.6,7.5,25.4,11.8,40.2,11.8c48.3,0,74.7-40,74.7-74.7l-0.1-3.4C120,34.2,124.5,29.6,128,24.3z"
+        />
+      </symbol>
+    </svg>
+
+    <noscript>
+      <!--[if lte IE 6]>
+        <p>
+          If you read this it's probably because the world has rebooted. I don't
+          know how but you arrived here. I'm sorry you cannot enjoy this little
+          game but you will be able to in the not too distant future. Browsers
+          will become incredibly better. Just before the world turns into chaos
+          due to Nutella production shortages. Scientists will realise too late
+          that Nutella was to humans what pollen is to bees. Don't believe the
+          hype, the end didn't (or won't) happen because the 'left-pad' package
+          got removed from NPM. Good luck.
+        </p>
+        <p>
+          PS: If the world has ended, please tell thejameskyle that I loved him.
+          Only his cat can save the world. (Shut the door)
+        </p>
+      <![endif]-->
+    </noscript>
+
+    <script src="#@lang_code/app.js"></script>
+    <script type="text/javascript">
+      // Set up service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+      }
+
+      // Easter Egg to get it full black
+      // Awesome for OLED screens
+      if (localStorage.getItem('isDeepBlack')) {
+        document.body.classList.add('deepblack');
+      }
+    </script>
+  </body>
 </html>
