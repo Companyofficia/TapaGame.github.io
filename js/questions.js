@@ -55,7 +55,83 @@ let questions = [
       "eXamine Multiple Language"
     ]
   },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
+
+  {
+      numb: 6,
+       question: "From which US city do the band The Killers originate?",
+       answer: "Las Vegas",
+       options: [
+         "Rice",
+         "Wellington",
+         "Las Vegas",
+         "Iago"
+       ]
+   },
+
+   {
+    numb: 7,
+     question: "From which US city do the band The Killers originate?",
+     answer: "Las Vegas",
+     options: [
+       "Rice",
+       "Wellington",
+       "Las Vegas",
+       "Iago"
+     ]
+ },
+
+ {
+  numb: 8,
+   question: "From which US city do the band The Killers originate?",
+   answer: "Las Vegas",
+   options: [
+     "Rice",
+     "Wellington",
+     "Las Vegas",
+     "Iago"
+   ]
+},
+
+{
+  numb: 9,
+   question: "From which US city do the band The Killers originate?",
+   answer: "Las Vegas",
+   options: [
+     "Rice",
+     "Wellington",
+     "Las Vegas",
+     "Iago"
+   ]
+},
+
+{
+  numb: 10,
+   question: "From which US city do the band The Killers originate?",
+   answer: "Las Vegas",
+   options: [
+     "Rice",
+     "Wellington",
+     "Las Vegas",
+     "Iago"
+   ]
+},
+
+{
+  numb: 11,
+   question: "From which US city do the band The Killers originate?",
+   answer: "Las Vegas",
+   options: [
+     "Rice",
+     "Wellington",
+     "Las Vegas",
+     "Iago"
+   ]
+},
+
+
+];
+
+// you can uncomment the below codes and make duplicate as more as you want to add question
   // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
 
   //   {
@@ -69,4 +145,3 @@ let questions = [
   //     "option 4"
   //   ]
   // },
-];
