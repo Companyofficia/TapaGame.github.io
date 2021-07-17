@@ -1,131 +1,82 @@
+<!-- Created By CodingNepal - www.codingnepalweb.com  -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Quiz</title>
-<style>
-body {
-background-color: lightblue;
-font-family: Helvetica;
-}
-
-#main {
-width: 80%;
-max-width: 950px;
-border: 1px gray solid;
-margin: auto;
-padding: 10px;
-background-color: white;
-border-radius: 10px;
-}
-
-#header {
-margin-top: 0;
-border: 2px solid black;
-padding: 5px;
-height: 250px;
-background: beige;
-background-image: url("Quiz_Background_Main.jpg");
-color: white;
-}
-
-label {
-display: block;
-}
-
-input {
-width: 30px;
-margin-left: 20px;
-}
-
-h2 {
-clear: both;
-padding-top: 20px;
-}
-
-button {
-width: 100px;
-margin-top: 20px;
-}
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-<div id="main">
-<div id="header">
-<h1>Todays Quiz</h1>
-</div>
-<form id="form1">
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
 
-<h2>Which is the best description of a variable?</h2>
-<label for="var_string"><input type="radio" name="variable" value="0" id="var_string" />Identifies a portion of a string.</label>
-<label for="var_join"><input type="radio" name="variable" value="0" id="var_join" />A method to join strings.</label>
-<label for="var_info"><input type="radio" name="variable" value="25" id="var_info" />Allows you to store information so it can be reused throughout the program</label>
-<label for="var_condition"><input type="radio" name="variable" value="0" id="var_condition"/>Allows you to make a decision based on a condition.</label>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
 
-<h2>Which is the best description of the substring method?</h2>
-<label for="sub_string"><input type="radio" name="sub" value="25" id="sub_string"/>Identifies a portion of a string.</label>
-<label for="sub_join"><input type="radio" name="sub" value="0" id="sub_join"/>A method to join strings.</label>
-<label for="sub_info"><input type="radio" name="sub" value="0" id="sub_info" />Allows you to store information so it can be reused throughout the program</label>
-<label for="sub_condition"><input type="radio" name="sub" value="0" id="sub_condition" />Allows you to make a decision based on a condition.</label>
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
 
-<h2>Which is the best description of concatenation?</h2>
-<label for="cat_string"><input type="radio" name="con" value="0" id="cat_string" />Identifies a portion of a string.</label>
-<label for="cat_join"><input type="radio" name="con" value="25" id="cat_join" />A method to join strings.</label>
-<label for="cat_info"><input type="radio" name="con" value="0" id="cat_info" />Allows you to store information so it can be reused throughout the program</label>
-<label for="cat_condition"><input type="radio" name="con" value="0" id="cat_condition" />Allows you to make a decision based on a condition.</label>
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
 
-<h2>Which is the best description of an if statement?</h2>
-<label for="if_string"><input type="radio" name="ifstate" value="0" id="if_string" />Identifies a portion of a string.</label>
-<label for="if_join"><input type="radio" name="ifstate" value="0" id="if_join" />A method to join strings.</label>
-<label for="if_info"><input type="radio" name="ifstate" value="0" id="if_info" />Allows you to store information so it can be reused throughout the program</label>
-<label for="if_condition"><input type="radio" name="ifstate"  value="25" id="if_condition" />Allows you to make a decision based on a condition.</label>
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
 
-<button type="submit" value="Submit">Submit</button>
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="js/questions.js"></script>
 
-</form>
-    
-<p>Your score is: <span id="grade">__</span></p>
-<p id="grade2"></p>
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="js/script.js"></script>
 
-
-
-<script>
-document.getElementById("form1").onsubmit=function() {
-       variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
-	   sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
-	   con = parseInt(document.querySelector('input[name = "con"]:checked').value);
-	   ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
-	   
-	   
-	   result = variable + sub + con + ifstate;
-	   
-	document.getElementById("grade").innerHTML = result;
-
- grading = [
-	   {score:0,feedback:"I don't think you studied. But Try again", image: ""},
-	   {score:25,feedback:"You need to spend more time. Try again", image: "Try_again.jpg"},
-	   {score:50,feedback:"I think you could do better. Try again.", image: "avg.jpg"},
-	   {score:75,feedback:"So close. Try again.", image: "above.jpg"},
-	   {score:100,feedback:"Excellent! You're a pro!", image: "excellent.jpg"}
-	   ];
-	  
-for(i=0; i<grading.length; i++) {
-    if(result == grading[i].score) {
-    result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
-	  }
-	  }
-
-
-document.getElementById("grade2").innerHTML = result2; 
-
-return false; // required to not refresh the page; just leave this here
-} //this ends the submit function
-
-</script>
-
-
-</div>
 </body>
 </html>
