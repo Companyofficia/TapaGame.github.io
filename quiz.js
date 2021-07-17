@@ -25,6 +25,11 @@ var questionBank= [
         option : ['1967','1968','1958','1922'],
         answer : '1967'
     },
+    {
+        question : 'What was the Turkish city of Istanbul called before 1930?',
+        option : ['1967','Constantinople','1958','1922'],
+        answer : 'Constantinople'
+    },
 
 ]
 
