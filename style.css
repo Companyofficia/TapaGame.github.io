@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+  text-align: center;
+  font-family: Montserrat, Arial, sans-serif;
+  background-color: #724cf9;
+}
+
+h1 {
+  color: #edf67d;
+}
+
+.elapsed-time-text {
+  color: #edf67d;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+}
+
+.game > button {
+  flex-basis: 5%;
+  align-self: flex-start;
+  font-family: Montserrat, Arial, sans-serif;
+  background-color: #724cf9;
+  border: 1px solid #f896d8;
+  color: #edf67d;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-basis: 5%;
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.game > button:hover {
+  background-color: #f896d8;
+  border: 1px solid #724cf9;
+  color: #724cf9;
+}
+
+.board {
+  flex-basis: 70%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 400px;
+  max-height: 400px;
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(9, 11.11%);
+  grid-template-columns: repeat(9, 11.11%);
+  justify-content: space-between;
+  align-content: space-between;
+  text-align: center;
+  border: 5px solid #a1d0ef;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.square {
+  border: 2px solid #a1d0ef;
+  text-align: center;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.square:hover {
+  background-color: #a1d0ef !important;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.top {
+  border-top: 5px solid #a1d0ef;
+}
+
+.left {
+  border-left: 5px solid #a1d0ef;
+}
+
+.right {
+  border-right: 5px solid #a1d0ef;
+}
+
+.bottom {
+  border-bottom: 5px solid #a1d0ef;
+}
+
+.winModal {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+}
+
+#one {
+  border-radius: 9px 0 0 0;
+}
+
+#nine {
+  border-radius: 0 9px 0 0;
+}
+
+#eightyone {
+  border-radius: 0 0 9px 0;
+}
+
+#seventythree {
+  border-radius: 0 0 0 9px;
+}
+
+.levels {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.levelBtn {
+  font-family: Montserrat, Arial, sans-serif;
+  background-color: #724cf9;
+  color: #edf67d;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #f896d8;
+  cursor: pointer;
+  flex-basis: 5%;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.levelBtn:hover {
+  background-color: #f896d8;
+}
