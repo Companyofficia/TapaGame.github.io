@@ -2,22 +2,29 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Ball hit game</title>
+  <title>CodePen - Pop the lock! | A Lock Picking game.</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
-
+<body>
 <!-- partial:index.partial.html -->
-<canvas id="myGame" width="450" height="960">
-        Please install a newer broswer to play this game.
-</canvas>
-    <script src="canvasGame.js"></script>
-	<p>
-		Ball Hit <span
-		id="display">0</span> Times
-	</p>
+<section id="label">
+	<div>Level: <span id="level"></span></div>
+</section>
+<section id="padlock">
+	<div id="shackle"></div>
+	<div>
+		<div id="notch-dial" class="dial">
+			<div id="notch" class="appear-a"></div>
+		</div>
+		<div id="line-dial" class="dial">
+			<div id="line"></div>
+		</div>
+	</div>
+	<div id="lock"></div>
+</section>
 <!-- partial -->
-  <script  src="./script.js"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>
