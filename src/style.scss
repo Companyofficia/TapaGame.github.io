@@ -1,167 +1,181 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
 
-$color-dark: #333344;
-
-html, body
-{
-	margin: 0;
-	overflow: hidden;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	font-family: 'Comfortaa', cursive;
+header {
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
 }
 
-#container
-{
-	width: 100%;
-	height: 100%;
-	
-	#score
-	{
-		position: absolute;
-		top: 20px;
-		width: 100%;
-		text-align: center;
-		font-size: 10vh;
-		transition: transform 0.5s ease;
-		color: $color-dark;
-		transform: translatey(-200px) scale(1);
-	}
-
-	#game
-	{
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-	
-	.game-over
-	{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 85%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		
-		*
-		{
-			transition: opacity 0.5s ease, transform 0.5s ease;
-			opacity: 0;
-			transform: translatey(-50px);
-			color: $color-dark;
-		}
-		
-		h2
-		{
-			margin: 0;
-			padding: 0;
-			font-size: 40px;
-		}
-	}
-	
-	.game-ready
-	{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
-		
-		#start-button
-		{
-			transition: opacity 0.5s ease, transform 0.5s ease;
-			opacity: 0;
-			transform: translatey(-50px);
-			
-			border: 3px solid $color-dark;
-			padding: 10px 20px;
-			background-color: transparent;
-			color: $color-dark;
-			font-size: 30px;
-		}
-	}
-	
-	#instructions
-	{
-		position: absolute;
-		width: 100%;
-		top: 16vh;
-		left: 0;
-		text-align: center;
-		transition: opacity 0.5s ease, transform 0.5s ease;
-		
-		opacity: 0;
-		
-		&.hide
-		{
-			opacity: 0 !important;
-		}
-	}
-	
-	&.playing, &.resetting
-	{
-		#score
-		{
-			transform: translatey(0px) scale(1);
-		}
-	}
-	
-	&.playing
-	{
-		#instructions
-		{
-			opacity: 1;
-		}
-	}
-	
-	&.ready
-	{
-		
-		
-		.game-ready
-		{
-			#start-button
-			{
-				opacity: 1;
-				transform: translatey(0);
-			}
-		}
-	}
-	
-	&.ended
-	{
-		#score
-		{
-			transform: translatey(6vh) scale(1.5);
-		}
-		
-		.game-over
-		{
-			*
-			{
-				opacity: 1;
-				transform: translatey(0);
-			}
-			
-			p
-			{
-				transition-delay: 0.3s;
-			}
-		}
-	}
+html {
+  background-color: #4D92E6;
+  color: #FBFBFB;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: 'Otomanopee One', Verdana, Geneva, Tahoma, sans-serif;
+}
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
+div, nav {
+  position: relative;
+}
 
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 32px;
+}
+
+.game_board {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (64px)[9];
+      grid-template-columns: repeat(9, 64px);
+  grid-gap: 2px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Cell {
+  height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Ball {
+  cursor: pointer;
+}
+
+.Ball, .colorInfoEl {
+  height: 48px;
+  width: 48px;
+  border-radius: 200px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.info {
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 9fr 1fr;
+      grid-template-rows: 9fr 1fr;
+  grid-gap: 1rem;
+}
+
+.scoreInfo {
+  font-size: 2rem;
+  color: #0A2647;
+  text-align: center;
+}
+
+.colorInfo {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (48px)[3];
+      grid-template-columns: repeat(3, 48px);
+  grid-gap: 4px;
+  padding: 4px;
+}
+
+.Msg-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Msg {
+  width: 400px;
+  height: 300px;
+  background-color: #FBFBFB;
+  color: #0A2647;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 16px;
+  font-size: 1.2rem;
+}
+
+.Msg .text {
+  text-align: center;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 1rem;
+  border: none;
+  background-color: #4D92E6;
+  color: #FBFBFB;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+}
+
+.btn:hover {
+  background-color: #0A2647;
+}
+
+.bottom-menu {
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn.contrast {
+  background-color: #FBFBFB;
+  color: #4D92E6;
+}
+
+.btn.contrast:hover {
+  background-color: #0A2647;
+}
+/*# sourceMappingURL=style.css.map */
